@@ -33,7 +33,11 @@ const Pin = ({ pin }: { pin: IPins }) => {
           <AntDesign name="hearto" size={20} color="black" />
         </TouchableOpacity>
       </View>
-      <Text style={styles.title}>{pin.title}</Text>
+      <TouchableOpacity>
+        <Text style={styles.title} numberOfLines={2}>
+          {pin.title}
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -48,18 +52,20 @@ const styles = StyleSheet.create({
     borderRadius: 100,
   },
   pin: {
-    width: "50%",
+    width: "100%",
   },
   image: {
     width: "100%",
     resizeMode: "cover",
-    borderRadius: 25,
+    borderRadius: 10,
     aspectRatio: 1 / 1,
   },
   title: {
     fontSize: 20,
     fontWeight: "bold",
     margin: 8,
+    lineHeight: 22,
+    color: "#202020",
   },
 });
 
