@@ -1,37 +1,14 @@
-import { StyleSheet, Image, ScrollView } from "react-native";
-import Pin from "../components/Pin";
+import { StyleSheet, Image, ScrollView, FlatList, View } from "react-native";
 
-import { Text, View } from "../components/Themed";
 import { RootTabScreenProps } from "../types";
-
+import pinsData from "../assets/data/pins";
+import MasonryList from "../components/MasonryList";
 export default function HomeScreen({
   navigation,
 }: RootTabScreenProps<"TabOne">) {
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <Pin
-        pin={{
-          title: "notJustDev",
-          image:
-            "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/pinterest/0.jpeg",
-        }}
-      />
-      <Pin
-        pin={{
-          title: "other Image",
-          image:
-            "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/pinterest/1.jpeg",
-        }}
-      />
+    <ScrollView contentContainerStyle={{ width: "100%" }}>
+      <MasonryList pins={pinsData} />
     </ScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flexGrow: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    padding: 10,
-  },
-});
