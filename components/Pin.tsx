@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Image,
   Pressable,
@@ -11,6 +11,14 @@ import { AntDesign } from "@expo/vector-icons";
 
 const Pin = ({ pin }: { pin: { title: string; image: string } }) => {
   const [ratio, setRatio] = useState(1);
+  useEffect(() => {
+    if (pin.image) {
+      Image.getSize(pin.image, (width, height) => {
+        setRatio(width / height);
+      });
+    }
+  }, [pin.image]);
+
   return (
     <View style={styles.pin}>
       <View>
@@ -39,7 +47,6 @@ const styles = StyleSheet.create({
     borderRadius: 100,
   },
   pin: {
-    height: 500,
     width: "100%",
   },
   image: {
