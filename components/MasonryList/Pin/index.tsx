@@ -9,17 +9,10 @@ import {
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import IPins from "../../../models/pins.schema";
+import useRatio from "../../../hooks/useRatio";
 
 const Pin = ({ pin }: { pin: IPins }) => {
-  const [ratio, setRatio] = useState(1);
-  useEffect(() => {
-    if (pin.image) {
-      Image.getSize(pin.image, (width, height) => {
-        setRatio(width / height);
-      });
-    }
-  }, [pin.image]);
-
+  const ratio = useRatio(pin.image);
   return (
     <View style={styles.pin}>
       <View>
