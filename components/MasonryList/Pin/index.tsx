@@ -1,12 +1,5 @@
-import React, { useEffect, useState } from "react";
-import {
-  Image,
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-} from "react-native";
+import React from "react";
+import { Image, StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import IPins from "../../../models/pins.schema";
 import useRatio from "../../../hooks/useRatio";
